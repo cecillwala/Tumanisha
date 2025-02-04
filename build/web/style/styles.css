@@ -1,0 +1,42 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Feb 4, 2025, 9:03:44 AM
+    Author     : Admin
+*/
+body{
+    padding: 20px;
+    margin: auto;
+    width: 50%; 
+    font-family: "Baloo Paaji 2", sans-serif;
+    font-weight: 300;
+}
+
+.registration_form{
+    display: flex;
+    flex-flow: column wrap;
+    gap: 15px;
+}
+
+.registration_form > input{
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.registration_btn{
+    color: #fff;
+    background-color: #0778f8;
+}
+
+.registration_btn:hover{
+    transition: all 200ms ease-in-out;
+    background-color: #fff;
+    color: #0778f8;
+    border: 1px solid #0778f8;
+    cursor: pointer;
+    
+}
+
