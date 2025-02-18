@@ -7,23 +7,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Author     : Admin
 */
 body{
-    padding: 20px;
-    margin: auto;
-    width: 50%; 
-    font-family: "Baloo Paaji 2", sans-serif;
-    font-weight: 300;
+    padding: 30px;
+    background-image: url("v2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
 }
 
 .registration_form{
     display: flex;
     flex-flow: column wrap;
     gap: 15px;
+    width: 50%;
+    margin: auto;
 }
 
 .registration_form > input{
     padding: 10px;
     border-radius: 8px;
     border: 1px solid #ccc;
+}
+select{
+    padding: 20px;
 }
 
 .registration_btn{
