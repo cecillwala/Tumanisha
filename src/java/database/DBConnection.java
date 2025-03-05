@@ -11,7 +11,7 @@ import java.sql.*;
  * @author Admin
  */
 public class DBConnection {
-    static String db_URL = "jdbc:mysql://localhost:3306/users";
+    static String db_URL = "jdbc:mysql://localhost:3306/tumanisha_db";
     static String db_user = "root";
     static String db_pasuwad = "admin";
     
