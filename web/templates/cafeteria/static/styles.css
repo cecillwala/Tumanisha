@@ -13,6 +13,56 @@ body{
     font-weight: 400;
     font-style: normal;
 }
+
+.container{
+    display: grid;
+    height: 97vh;
+    grid-template-areas: 
+        "header header"
+        "menu main"
+        "footer footer";
+    grid-template-columns: 1fr 4.5fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 3px;
+}
+
+/*.container *{
+    background-color: #ccc;
+    border: 1px #ccc solid;
+    border-radius: 5px;
+}*/
+
+.menu{
+    grid-area: menu;
+    display: flex;
+    flex-flow: column wrap;
+    /*gap: 6px;*/
+    justify-content: space-around;
+    align-content: space-around;
+    /*border: 1px #ccc solid;*/
+    
+}
+.menu > button{
+    padding: 1rem;
+    background-color: #f78508;
+    color: #fff;
+    border: 1px solid #f78508;
+    border-radius: 20px;
+}
+
+.menu > button:hover{
+    transition: ease-in-out 300ms all;
+    color: #f75808;
+    background-color: black;
+}
+
+.main{
+    grid-area: main;
+}
+.footer{
+    grid-area: footer;
+}
+
 .logo, .tumanisha{
     display: flex;
     flex-flow: row nowrap;
@@ -29,5 +79,6 @@ body{
 header{
     display: flex;
     justify-content: space-between;
+    grid-area: header;
 }
 
