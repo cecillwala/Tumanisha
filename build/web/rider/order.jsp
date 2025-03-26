@@ -1,6 +1,6 @@
 <%-- 
     Document   : home
-    Created on : Mar 4, 2025, 11:46:37 AM
+    Created on : Mar 5, 2025, 4:17:17 PM
     Author     : Admin
 --%>
 
@@ -8,4 +8,4 @@
 <%@include file="include/header.html" %>
 <div class="main">
 </div>
-<%@include file="include/header.html" %>
+<%@include file="include/footer.html" %>
