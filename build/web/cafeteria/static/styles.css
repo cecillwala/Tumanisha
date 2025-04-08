@@ -82,3 +82,39 @@ header{
     grid-area: header;
 }
 
+body {
+            font-family: ADLaM Display;
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #F58708;
+            padding: 8px;
+            text-align: center;
+        }
+         button{
+             padding: 1rem;
+              background-color: #f78508;
+              color: #fff;
+                border: 1px solid #f78508;
+                 border-radius: 10px;
+        }
+        .button:hover{
+            button:hover{
+             transition: ease-in-out 300ms all;
+              color: #f75808;
+        }
+
+        th {
+            background-color: #000000;
+        }
+
+        tr:nth-child(even) {
+            background-color: #000000;
+        }
