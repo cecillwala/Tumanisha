@@ -13,7 +13,7 @@ import java.sql.*;
 public class DBConnection {
     static String db_URL = "jdbc:mysql://localhost:3306/tumanisha_db";
     static String db_user = "root";
-    static String db_pasuwad = "admin";
+    static String db_pasuwad = "root";
     
     public static Connection getConnection() throws SQLException {
         try{
