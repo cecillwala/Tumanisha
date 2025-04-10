@@ -63,6 +63,16 @@
                           <td>Peter</td>
                            <td>Returned</td>
                 </tr>
+                <tr>
+                    <td>005</td>
+                     <td>Betty</td>
+                     <td>Rice and Beef Stew</td>
+                      <td>2 pieces</td>
+                        <td>Ksh 180</td>
+                      <td>4/05/2025 13.30</td>
+                          <td>Peter</td>
+                           <td>Delivered</td>
+                </tr>
             </tbody>
         </table>
         </div>
