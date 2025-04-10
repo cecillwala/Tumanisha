@@ -13,6 +13,9 @@ nb-configuration.xml
 # === Logs ===
 *.log
 
+#===Database config===
+src/database
+
 # === OS-specific files ===
 .DS_Store
 Thumbs.db

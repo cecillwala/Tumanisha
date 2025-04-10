@@ -99,6 +99,8 @@ public class RegisterCafeteria extends HttpServlet {
             e.printStackTrace();
             response.getWriter().println("❌ Error: " + e.getMessage());
         }
+        
+        response.sendRedirect("home?cafeteria=" + cafeteria);
 
     }
 
