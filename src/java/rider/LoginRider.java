@@ -18,22 +18,28 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "LoginRider", urlPatterns = {"/rider/LoginRider"})
 public class LoginRider extends HttpServlet {
-
-    @Override
+    
+     
+     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //TODO
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //TODO
-    }
+          // 1. Get login form input
+        String userName = request.getParameter("userName"); // field name from the form
+        String password = request.getParameter("password");
 
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+        
+        response.sendRedirect("home.jsp");
 
-}
+            }
+     
+
+   
+    } 
