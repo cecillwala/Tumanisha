@@ -6,4 +6,115 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Created on : Mar 5, 2025, 4:02:13 PM
     Author     : Admin
 */
+body{
+    background-color: black;
+    color: #ffffff;
+    font-family: "ADLaM Display", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
 
+.container{
+    display: grid;
+    height: 97vh;
+    grid-template-areas: 
+        "header header"
+        "menu main"
+        "footer footer";
+    grid-template-columns: 1fr 4.5fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 3px;
+}
+
+/*.container *{
+    background-color: #ccc;
+    border: 1px #ccc solid;
+    border-radius: 5px;
+}*/
+
+.menu{
+    grid-area: menu;
+    display: flex;
+    flex-flow: column wrap;
+    /*gap: 6px;*/
+    justify-content: space-around;
+    align-content: space-around;
+    /*border: 1px #ccc solid;*/
+    
+}
+.menu > button{
+    padding: 1rem;
+    background-color: #f78508;
+    color: #fff;
+    border: 1px solid #f78508;
+    border-radius: 20px;
+}
+
+.menu > button:hover{
+    transition: ease-in-out 300ms all;
+    color: #f75808;
+    background-color: black;
+}
+
+.main{
+    grid-area: main;
+}
+.footer{
+    grid-area: footer;
+}
+
+.logo, .tumanisha{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: 1em;
+}
+
+
+.tumanisha{
+    gap: 0;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    grid-area: header;
+}
+
+body {
+            font-family: ADLaM Display;
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #F58708;
+            padding: 8px;
+            text-align: center;
+        }
+         button{
+             padding: 1rem;
+              background-color: #f78508;
+              color: #fff;
+                border: 1px solid #f78508;
+                 border-radius: 10px;
+        }
+        .button:hover{
+            button:hover{
+             transition: ease-in-out 300ms all;
+              color: #f75808;
+        }
+
+        th {
+            background-color: #000000;
+        }
+
+        tr:nth-child(even) {
+            background-color: #000000;
+        }
