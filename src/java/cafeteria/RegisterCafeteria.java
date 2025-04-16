@@ -16,6 +16,7 @@ import database.DBConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import utils.Hash;
 
 
 /**
@@ -44,7 +45,7 @@ public class RegisterCafeteria extends HttpServlet {
         String phone_no = request.getParameter("phoneNo");
         String nationalID = request.getParameter("nationalID");
         String cafeteria = request.getParameter("cafeteria");
-        String password = request.getParameter("password");
+        String password = Hash.hashPassword(request.getParameter("password"));
         
         try {
             Connection conn = DBConnection.getConnection();
@@ -100,7 +101,7 @@ public class RegisterCafeteria extends HttpServlet {
             response.getWriter().println("❌ Error: " + e.getMessage());
         }
         
-        response.sendRedirect("home?cafeteria=" + cafeteria);
+        response.sendRedirect("HomeCafeteria?cafeteria=" + cafeteria);
 
     }
 

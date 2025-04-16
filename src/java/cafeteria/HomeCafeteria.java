@@ -13,6 +13,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.RequestDispatcher;
+import java.util.ArrayList;
+import java.util.List;
+
+import Query.MenuItem;
 
 /**
  *
@@ -25,6 +29,15 @@ public class HomeCafeteria extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //TODO
+        List<MenuItem> menuItems = new ArrayList<>();
+        String cafeteria = request.getParameter("cafeteria");
+        menuItems = MenuItem.getAllMenuItems(cafeteria);
+        
+        for(MenuItem item : menuItems ){
+            System.out.println(item.item);
+        }
+        
+        request.setAttribute("menuItems", menuItems);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/cafeteria/home.jsp");
         dispatcher.forward(request, response);
         

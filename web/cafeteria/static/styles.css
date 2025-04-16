@@ -1,20 +1,18 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
-*/
-/* 
-    Created on : Mar 5, 2025, 4:02:13 PM
-    Author     : Admin
-*/
-body{
+
+
+
+/* === Base Styles === */
+body {
     background-color: black;
     color: #ffffff;
     font-family: "ADLaM Display", system-ui;
     font-weight: 400;
     font-style: normal;
+    margin: 20px;
 }
 
-.container{
+/* === Layout Grid === */
+.container {
     display: grid;
     height: 97vh;
     grid-template-areas: 
@@ -26,44 +24,39 @@ body{
     gap: 3px;
 }
 
-/*.container *{
-    background-color: #ccc;
-    border: 1px #ccc solid;
-    border-radius: 5px;
-}*/
-
-.menu{
+.menu {
     grid-area: menu;
     display: flex;
     flex-flow: column wrap;
-    /*gap: 6px;*/
     justify-content: space-around;
     align-content: space-around;
-    /*border: 1px #ccc solid;*/
-    
 }
-.menu > button{
+
+.menu > button {
     padding: 1rem;
     background-color: #f78508;
     color: #fff;
     border: 1px solid #f78508;
     border-radius: 20px;
+    cursor: pointer;
 }
 
-.menu > button:hover{
+.menu > button:hover {
     transition: ease-in-out 300ms all;
     color: #f75808;
     background-color: black;
 }
 
-.main{
+.main {
     grid-area: main;
+    padding: 1rem;
 }
-.footer{
+
+.footer {
     grid-area: footer;
 }
 
-.logo, .tumanisha{
+.logo, .tumanisha {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
@@ -71,50 +64,147 @@ body{
     gap: 1em;
 }
 
-
-.tumanisha{
+.tumanisha {
     gap: 0;
 }
 
-header{
+header {
     display: flex;
     justify-content: space-between;
     grid-area: header;
 }
 
-body {
-            font-family: ADLaM Display;
-            margin: 20px;
-        }
+/* === Menu Table Styling === */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
+th, td {
+    border: 1px solid #F58708;
+    padding: 8px;
+    text-align: center;
+}
 
-        th, td {
-            border: 1px solid #F58708;
-            padding: 8px;
-            text-align: center;
-        }
-         button{
-             padding: 1rem;
-              background-color: #f78508;
-              color: #fff;
-                border: 1px solid #f78508;
-                 border-radius: 10px;
-        }
-        .button:hover{
-            button:hover{
-             transition: ease-in-out 300ms all;
-              color: #f75808;
-        }
+th {
+    background-color: #000000;
+}
 
-        th {
-            background-color: #000000;
-        }
+tr:nth-child(even) {
+    background-color: #000000;
+}
 
-        tr:nth-child(even) {
-            background-color: #000000;
-        }
+/* === General Button Styling === */
+button {
+    padding: 1rem;
+    background-color: #f78508;
+    color: #fff;
+    border: 1px solid #f78508;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    transition: ease-in-out 300ms all;
+    color: #f75808;
+    background-color: #1a1a1a;
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.menu-item {
+    background-color: #111;
+    padding: 0.8rem;
+    border: 1px solid #333;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.9rem;
+}
+
+.item-details{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+/* Image on the left */
+.menu-item-img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Center: details */
+.menu-item-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 0.3rem;
+    padding-left: 0.5rem;
+}
+
+/* Right: buttons */
+.menu-item-actions button {
+    width: 80px;             /* Set consistent width */
+    height: 40px;            /* Set consistent height */
+    padding: 0.5rem 1rem;    
+    font-size: 0.9rem;
+    border-radius: 8px;
+    background-color: #f78508;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-item-actions button:hover {
+    background-color: black;
+    color: #f75808;
+    transition: ease-in-out 300ms all;
+}
+
+.menu-item-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+
+
+/* === Form Styling === */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    max-width: 400px;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="file"] {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    width: fit-content;
+    align-self: flex-start;
+}

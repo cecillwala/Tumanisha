@@ -1,4 +1,4 @@
-package utils;
+package Query;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,35 +12,35 @@ public class MenuItem {
     public String item;
     public double price;
     public double stock_quantity;
-    public int cafeteria_id;
+    public String cafeteria_name;
     public boolean is_available;
     public String image_url;
 
-    public MenuItem(int menu_id, String item, double price, double stock_quantity,int cafeteria_id, boolean is_available, String image_url) {
+    public MenuItem(int menu_id, String item, double price, double stock_quantity,String cafeteria_name, boolean is_available, String image_url) {
         this.menu_id = menu_id;
         this.item = item;
         this.price = price;
         this.stock_quantity = stock_quantity;
-        this.cafeteria_id = cafeteria_id;
+        this.cafeteria_name = cafeteria_name;
         this.is_available = is_available;
         this.image_url = image_url;
     }
 
     // Get all menu items from the database
-    public static List<MenuItem> getAllMenuItems(int id) {
+    public static List<MenuItem> getAllMenuItems(String cafeteria) {
         List<MenuItem> menuItems = new ArrayList<>();
         try (Connection conn = DBConnection.getConnection()) {
-            String sql = "SELECT * FROM menu WHERE cafeteria_id = ?";
+            String sql = "SELECT * FROM menu WHERE cafeteria_name = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, id);
+            stmt.setString(1, cafeteria);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 MenuItem item = new MenuItem(
                     rs.getInt("menu_id"),
                     rs.getString("item"),
-                    rs.getInt("price"),
+                    rs.getDouble("price"),
                     rs.getDouble("stock_quantity"),
-                    rs.getInt("cafeteria_id"),
+                    rs.getString("cafeteria_name"),
                     rs.getBoolean("is_available"),
                     rs.getString("image_url")
                 );

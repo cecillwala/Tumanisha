@@ -8,7 +8,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
+import utils.Hash;
+import Query.Cafeteria;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author cecillwala
@@ -29,9 +33,22 @@ public class LoginCafeteria extends HttpServlet {
             throws ServletException, IOException {
         //TODO
         String cafeteria = request.getParameter("cafeteria");
-        String password = request.getParameter("password");
+        String password = Hash.hashPassword(request.getParameter("password"));
         
-        response.sendRedirect("HomeCafeteria?cafeteria=" + cafeteria);
+        String hashed= "";
+        try {
+            hashed = Cafeteria.getCafeteriaPassword(cafeteria);
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginCafeteria.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if (password.equals(hashed)) {
+            response.sendRedirect("HomeCafeteria?cafeteria=" + cafeteria.toLowerCase());
+        } else {
+            
+        }
+        
+        response.sendRedirect("HomeCafeteria?cafeteria=" + cafeteria.toLowerCase());
     }
 
     /**

@@ -4,6 +4,9 @@
  */
 package student;
 
+import Query.User;
+import Query.Student;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -12,11 +15,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-//DB packages
-import database.DBConnection;
-import jakarta.servlet.RequestDispatcher;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 
 /**
  *
@@ -39,28 +43,34 @@ public class RegisterStudent extends HttpServlet {
         String lastName = request.getParameter("lastName");
         String phone_no = request.getParameter("phoneNo");
         String nationalID = request.getParameter("nationalID");
-        String studentId = request.getParameter("studentId");
+        String regNo = request.getParameter("regNo");
         String password = request.getParameter("password");
+        String hostel = request.getParameter("hostel");
+        String roomNumber = request.getParameter("roomNumber");
+        
+        User user = new User(firstName, lastName, lastName.toLowerCase() + "" + firstName.toLowerCase(), phone_no, password, nationalID, true, false, false);
+        try {
+            User.addUser(user);
+        } catch (SQLException ex) {
+            Logger.getLogger(RegisterStudent.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         try {
-            Connection conn = DBConnection.getConnection();
-            String sql = "INSERT INTO users (first_name, last_name, username, phone_number, password) VALUES (?, ?, ?, ?, ?)";
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, firstName);
-            stmt.setString(2, lastName);
-            stmt.setString(3, lastName.toLowerCase() + "" + firstName.toLowerCase());
-            stmt.setString(4, phone_no);
-            stmt.setString(5, password);
-            stmt.executeUpdate();
-            conn.close();
-            
-            String url = "student/home.jsp";
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
-            dispatcher.forward(request, response);
-        }     catch (Exception e) {
-            e.printStackTrace();
-            response.getWriter().println("❌ Error: " + e.getMessage());
+            user = User.getUserById(nationalID);
+        } catch (SQLException ex) {
+            Logger.getLogger(RegisterStudent.class.getName()).log(Level.SEVERE, null, ex);
         }
+        Student student = new Student(regNo, user.userId, hostel, roomNumber);
+        
+        try {
+            Student.addStudent(student);
+        } catch (SQLException ex) {
+            Logger.getLogger(RegisterStudent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        request.setAttribute("user", user);
+        request.setAttribute("student", student);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("HomeStudent");
+        dispatcher.forward(request, response);
     }
 
     /**
